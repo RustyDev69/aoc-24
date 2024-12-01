@@ -4,8 +4,8 @@ pub fn main() !void {
     var gpa = std.heap.GeneralPurposeAllocator(.{ .thread_safe = true }){};
     const allocator = gpa.allocator();
 
-    const path = "/home/rusty/Development/aoc-24/day01.txt";
-    var f = try std.fs.openFileAbsolute(path, .{ .mode = .read_only });
+    const path = "day01.txt";
+    var f = try std.fs.cwd().openFile(path, .{ .mode = .read_only });
     defer f.close();
 
     var reader = f.reader();
